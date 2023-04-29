@@ -6,9 +6,9 @@ public class Toy {
     private int id;
     private String name;
     private int count;
-    private byte chanceOfWinning;
+    private int chanceOfWinning;
 
-    public Toy(int id, String name, int count, byte chanceOfWinning) {
+    public Toy(int id, String name, int count, int chanceOfWinning) {
         this.id = id;
         this.name = name;
         this.count = count;
@@ -41,11 +41,11 @@ public class Toy {
 
     }
 
-    public byte getChanceOfWinning() {
+    public int getChanceOfWinning() {
         return chanceOfWinning;
     }
 
-    public void setChanceOfWinning(byte chanceOfWinning) {
+    public void setChanceOfWinning(int chanceOfWinning) {
         if (0 < chanceOfWinning && chanceOfWinning < 100) {
             this.chanceOfWinning = chanceOfWinning;
         } else {
