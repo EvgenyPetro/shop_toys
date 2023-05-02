@@ -23,8 +23,8 @@ public class Toy {
         return name;
     }
 
-    public void setName(String name){
-        this.name=name;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
@@ -32,11 +32,11 @@ public class Toy {
         return count;
     }
 
-    public void setCount(int count) throws IllegalAccessException {
+    public void setCount(int count) {
         if (count > 0) {
             this.count = count;
         } else {
-            throw new IllegalAccessException("Отрицательное количество игрушек невозможно");
+            System.out.println("Отрицательное количество игрушек невозможно");
         }
 
     }

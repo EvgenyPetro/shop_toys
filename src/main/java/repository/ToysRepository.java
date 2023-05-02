@@ -1,7 +1,7 @@
 package repository;
 
 import model.Toy;
-import service.FileManager;
+import service.fileManager.FileManager;
 
 import java.util.List;
 
@@ -26,19 +26,26 @@ public class ToysRepository {
 
     public String saveToy(Toy toy) {
         toys.add(toy);
+        fileManager.writeToyToFile(toy);
         return "Save";
     }
 
     public String deleteToy(int id) {
         toys.remove(getToy(id));
+        fileManager.clearFile();
+        toys.forEach(fileManager::writeToyToFile);
         return "Deleted";
     }
 
-    public Toy updateToy(int id, Toy toy) throws IllegalAccessException {
+    public Toy updateToy(int id, Toy toy){
         Toy updatedToy = getToy(id);
         updatedToy.setName(toy.getName());
         updatedToy.setCount(toy.getCount());
         updatedToy.setChanceOfWinning(toy.getChanceOfWinning());
+        toys.remove(toy);
+        toys.add(updatedToy);
+        fileManager.clearFile();
+        toys.forEach(fileManager::writeToyToFile);
         return updatedToy;
 
     }

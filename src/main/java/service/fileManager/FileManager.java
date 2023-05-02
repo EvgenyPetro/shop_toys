@@ -1,12 +1,13 @@
-package service;
+package service.fileManager;
 
 import model.Toy;
 
-import java.io.File;
 import java.util.List;
 
 public interface FileManager {
-    void writeFile(List<Toy> toyList);
+    void clearFile();
+
+    void writeToyToFile(Toy toyList);
 
     List<Toy> readFile();
 }
