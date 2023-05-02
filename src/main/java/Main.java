@@ -11,8 +11,14 @@ import java.io.File;
 public class Main {
     public static void main(String[] args) {
 
-//        testToyRepository();
+        testToyRepository();
 
+        testLoteryFunc();
+
+
+    }
+
+    private static void testLoteryFunc() {
         FileManager fileManager = new CsvFileManager(new File("src/main/resources/chop_toy.csv"));
         FileManager prizefileManager = new CsvFileManager(new File("src/main/resources/prize_list.csv"));
         ToysRepository repository = new ToysRepository(fileManager);
@@ -20,8 +26,7 @@ public class Main {
         LotteryToyService lotteryToyService = new LotteryToyServiceImpl(repository, prizeRepository);
 
         Toy toy = lotteryToyService.loteryToy(repository.getAllToys());
-
-
+        System.out.println(toy);
     }
 
     private static void testToyRepository() {
